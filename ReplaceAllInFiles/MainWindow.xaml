@@ -1,0 +1,51 @@
+﻿<Window x:Class="ReplaceAllInFiles.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Replace String In Files" Height="350" Width="525">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="String to find" Margin="0,0,10,0"/>
+            <TextBox Grid.Row="0" Grid.Column="1" Name="Source"/>
+
+            <TextBlock Grid.Row="1" Grid.Column="0" Text="String to replace with" Margin="0,0,10,0"/>
+            <TextBox Grid.Row="1" Grid.Column="1" Name="Dest"/>
+        </Grid>
+
+        <StackPanel Grid.Row="1" Orientation="Vertical" Margin="0,10">
+            <TextBlock Text="File list (space separated and can support wildcards)"/>
+            <TextBox Name="Files"/>
+        </StackPanel>
+        
+        <StackPanel Grid.Row="2" Orientation="Vertical">
+            <CheckBox Name="CaseSensitive" Content="Case sensitive"/>
+            <CheckBox Name="ScanRecursively" Content="Scan folders recursively"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10">
+            <Button Name="Start" Content="Start" Width="100" Margin="5,0" Click="Start_Click"/>
+            <Button Name="Cancel" Content="Cancel" Width="100" Margin="5,0" Click="Cancel_Click"/>
+        </StackPanel>
+
+        <ScrollViewer Grid.Row="4">
+            <ListBox Name="FileList"/>
+        </ScrollViewer>
+    </Grid>
+</Window>
